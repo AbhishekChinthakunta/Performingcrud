@@ -1,0 +1,46 @@
+﻿@page
+@model Performingcrud.Pages.Clients.IndexModel
+@{
+}
+
+<br />
+<h2>
+	List Of Students
+</h2>
+
+<a class="btn btn-primary btn-sm" href="/Clients/Create">Add New Student</a>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Degree</th>
+			<th>Phone Number</th>
+		</tr>
+
+	</thead>
+	<tbody>
+		@foreach (var item in Model.listStudents)
+		{
+		<tr> 
+			<td>@item.stid</td>
+			<td>@item.sname</td>
+			<td>@item.sage</td>
+			<td>@item.sdegree</td>
+			<td>@item.sphno</td> 
+			<td>
+				<a class="btn btn-primary btn-sm" href="/Clients/Edit?stid=@item.stid">Edit</a>
+				<a class="btn btn-danger btn-sm" href="/Clients/Delete?stid=@item.stid">Delete</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>
+
+@if (Model.listStudents.Count == 0)
+{
+	<tr><td colspan="7">No data available.</td></tr>
+}
+

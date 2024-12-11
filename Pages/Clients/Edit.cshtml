@@ -1,0 +1,42 @@
+﻿@page
+@model EditModel
+@{
+}
+
+
+<h2>
+	Update the Details 
+</h2>
+<br />
+
+@if (Model.errorMessage.Length > 0)
+{
+		<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>@Model.errorMessage</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+		</div>
+}
+
+<div>
+	<form method="post">
+		<input type="hidden" name="id" value="@Model.StudentsInfo.stid" />
+		<label>Student ID</label>
+		<input type="number" name="stid" value="@Model.StudentsInfo.stid" />
+		<br /><br />
+		<label>Student Name</label>
+		<input type="text" name="sname" value="@Model.StudentsInfo.sname" />
+		<br /><br />
+		<label>Student Age</label>
+		<input type="number" name="sage" value="@Model.StudentsInfo.sage" />
+		<br /><br />
+		<label>Student Degree</label>
+		<input type="text" name="sdegree" value="@Model.StudentsInfo.sdegree" />
+		<br /><br />
+		<label>Student Phone Number</label>
+		<input type="tel" name="sphno" value="@Model.StudentsInfo.sphno" />
+
+		<br /><br />
+		<input type="submit" class="btn btn-primary" name="Update" value="Update" />       
+		<input type="submit" class="btn btn-outline-primary" name="cancel" value="Cancel" href="/Clients" />
+	</form>
+</div>
